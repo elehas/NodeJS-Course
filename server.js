@@ -2,6 +2,7 @@ const express = require('express');
 const hbs = require('hbs');
 const fs = require('fs');
 
+const port = process.env.PORT || 3000;
 var app = express();
 
 // Partials allow the ability to put reused markup in a file
@@ -11,7 +12,7 @@ hbs.registerPartials(__dirname + '/views/partials');
 // Tells express to use the handlebars template engine to render
 app.set('view engine', 'hbs');
 
-// Middleware. Use methods execute in order of precedance. 
+// Middleware. Use methods execute in order of precedance.
 app.use((req, res, next) => {
   var now = new Date().toString();
   var log = `${now}: ${req.method} ${req.originalUrl}`;
@@ -67,4 +68,6 @@ app.get('/bad', (req, res) => {
 });
 
 // Tells express to listen on port 3000 when started
-app.listen(3000);
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
