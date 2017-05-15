@@ -25,9 +25,9 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use((req, res, next) => {
-  res.render('maintenance.hbs');
-});
+// app.use((req, res, next) => {
+//   res.render('maintenance.hbs');
+// });
 
 // Tells express to look in the specific directory for all pages
 // without having to app.get each possibility
@@ -47,7 +47,7 @@ hbs.registerHelper('screamIt', (text) => {
 // app.get is the express method that looks at a specific URL and executes
 // the appropriate response (markup/function)
 app.get('/', (req, res) => {
-  // res.render is the HBS specific method that tell express to render the template file
+  // res.render is the HBS specific method that tells express to render the template file
   res.render('home.hbs', {
     pageTitle: 'Home Page',
     welcomeMessage: `You've reached the homepage`,
