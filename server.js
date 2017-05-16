@@ -54,6 +54,14 @@ app.get('/', (req, res) => {
   });
 });
 
+app.get('/portfolio', (req, res) => {
+  // res.render is the HBS specific method that tells express to render the template file
+  res.render('portfolio.hbs', {
+    pageTitle: 'Portfolio Page',
+    name: 'portfolio',
+  });
+});
+
 app.get('/about', (req, res) => {
   res.render('about.hbs', {
     pageTitle: 'About Page',
